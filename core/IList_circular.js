@@ -12,7 +12,7 @@ class IListCircular {
     newNode = new Node(newElem)
     newNode.next = head
     this.head = newNode
-    if (this.tail !== nul) {
+    if (this.tail !== null) {
       this.tail.next = this.head
     }
 
@@ -22,7 +22,7 @@ class IListCircular {
   addLast(newElem) {
     newNode = new Node(newElem)
     newNode.next = this.head
-    if (this.tail !== nul) {
+    if (this.tail !== null) {
       this.tail.next = newNode
       this.tail = newNode
     }
@@ -74,6 +74,8 @@ class IListCircular {
     if (elem.code === cursor.data.code) {
       return true
     }
+
+    return false
   }
 
   getSize() {
@@ -96,10 +98,12 @@ class IListCircular {
       cursor = cursor.next
     }
 
-    // at this point it should be the tail
+    // at this point it should be at the tail
     if (elem.code === cursor.data.code) {
-      return true
+      return index
     }
+
+    return -1
   }
 
   getFirst() {
@@ -110,7 +114,14 @@ class IListCircular {
     return this.tail.data
   }
 
-  getAt(index) {}
+  getAt(index) {
+    cursor = this.head
+    while (index--) {
+      cursor = cursor.next
+    }
+
+    return cursor.data
+  }
 
   toString() {}
 

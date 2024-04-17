@@ -1,11 +1,9 @@
 import { Employee } from '../entities/employee';
 import { DoubleNode } from './double_node';
 
-class IListDoble {
+export class IListDoble {
   /** @type {DoubleNode?} **/
   head = null
-
-
   /** @type {DoubleNode?} **/
   tail = null
 
@@ -38,7 +36,6 @@ class IListDoble {
   // Calle
   insertAt(index, newElem) {
     if(index < 0 || index > this.getSize()){
-      console.log("WEBON DE MIERDA");
       return;
     }
     if(index === 0){
@@ -136,7 +133,7 @@ class IListDoble {
       temp = temp.next;
     }
 
-    return temp;
+    return temp.data;
   }
 
   // Paolo
@@ -148,15 +145,17 @@ class IListDoble {
       str += ` ${temp.data} <->`;
       temp = temp.next;
     }
-
     return str.slice(0, -3).trim();
   }
 
   // Paolo
   removeFirst() {
     if (this.head == null) return;
+    const removedData = this.head.data;
     this.head = this.head.next;
     this.head.prev = null;
+
+    return removedData;
   }
 
   // Toñito
@@ -176,5 +175,4 @@ class IListDoble {
     this.head = null;
     this.tail = null;
   }
-
 }

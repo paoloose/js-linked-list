@@ -115,17 +115,28 @@ class IListCircular {
   }
 
   getAt(index) {
-    cursor = this.head
-    while (index--) {
+    let cursor = this.head
+
+    while (index-->0) {
       cursor = cursor.next
     }
 
     return cursor.data
   }
 
-  toString() {}
+  toString() {
+    return this.getAll().toString();
+  }
 
-  removeFirst() {}
+  removeFirst() {
+    if (this.head === null) return;
+    this.head = this.head.next;
+    this.tail.next = this.head;
+
+    if (this.head === null) {
+      this.tail = null;
+    }
+  }
 
   removeLast() {
     let cursor = this.head;
@@ -137,11 +148,20 @@ class IListCircular {
     cursor.next = this.tail.next;
   }
 
-  removeAll() {}
+  removeAll() {
+    this.head = null;
+    this.tail = null;
+  }
+
+  getAll() {
+    let data = [];
+    let cursor = this.head;
+
+    while (cursor.next !== this.head) {
+      data.push(cursor.data);
+    }
+    return data;
+  }
 }
 
-
-export {
-  IListCircular
-}
-
+export { IListCircular };

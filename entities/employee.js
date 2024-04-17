@@ -1,8 +1,9 @@
 export class Employee {
-    constructor(name, salary, code) {
+    constructor(name, salary, code, gender) {
       this.name = name;
       this.salary = salary;
       this.code = code ?? Employee.generateCode();
+      this.gender = gender ?? "-";
     }
 
     static generateCode() {

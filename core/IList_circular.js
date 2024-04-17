@@ -31,10 +31,6 @@ class IListCircular {
     this.size++
   }
 
-  size() {
-    return this.size
-  }
-
   // Si, por ejemplo, se tiene
   //      [ 1, 2, 3, 4, 5 ]
   // pos: [ 0, 1, 2, 3, 4 ]
@@ -57,17 +53,63 @@ class IListCircular {
     this.size++
   }
 
-  isEmpty() {}
+  isEmpty() {
+    return (this.getSize() === 0)
+  }
 
-  contains(elem) {}
+  contains(elem) {
+    if (elem.code === undefined) {
+      return false
+    }
 
-  getSize() {}
+    let cursor = this.head
+    while (cursor !== null && cursor !== this.tail) {
+      if (this.compareData(elem, cursor.data)) {
+        return true
+      }
 
-  getIndexOf(elem) {}
+      cursor = cursor.next
+    }
 
-  getFirst() {}
+    // at this point it should be the tail
+    if (elem.code === cursor.data.code) {
+      return true
+    }
+  }
 
-  getLast() {}
+  getSize() {
+    return this.size
+  }
+
+  getIndexOf(elem) {
+    let index = 0
+    if (elem.code === undefined) {
+      return false
+    }
+
+    let cursor = this.head
+    while (cursor !== null && cursor !== this.tail) {
+      if (this.compareData(elem, cursor.data)) {
+        return index
+      }
+
+      index++
+      cursor = cursor.next
+    }
+
+    // at this point it should be the tail
+    if (elem.code === cursor.data.code) {
+      return true
+    }
+  }
+
+  getFirst() {
+    return this.head.data
+  }
+
+  getLast() {
+    return this.tail.data
+  }
 
   getAt(index) {}
 

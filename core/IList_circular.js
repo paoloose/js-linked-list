@@ -1,10 +1,9 @@
 import { Node } from './node';
 
 class IListCircular {
-  data = null
-  next = null
-
+  /** @type {DoubleNode?} **/
   head = null
+  /** @type {DoubleNode?} **/
   tail = null
 
   size = 0

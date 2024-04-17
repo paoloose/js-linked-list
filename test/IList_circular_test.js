@@ -1,8 +1,8 @@
-import { IList_circular } from '../core/IList_circular'
+import { IListCircular } from '../core'
 
 
 
-const hola = new IList_circular()
+const hola = new IListCircular()
 
 console.log('yoquese')
 

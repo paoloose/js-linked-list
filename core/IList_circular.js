@@ -1,7 +1,18 @@
-import { DoubleNode } from './double_node';
+import { Node } from './node';
 
 class IListCircular {
-  addFirst(newElem) {}
+  data = null
+  next = null
+
+  head = null
+  tail = null
+
+  addFirst(newElem) {
+    newNode = new Node(newElem)
+    newNode.next = head
+    this.head = newNode
+    this.tail.next = this.head
+  }
 
   addLast(newElem) {}
 

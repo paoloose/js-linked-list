@@ -3,7 +3,7 @@ export class Node {
     next = null
 
     constructor(data) {
-      this.data = data;
+      this.data = {...data};
       this.next = null;
     }
   }

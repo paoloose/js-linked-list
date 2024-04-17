@@ -127,7 +127,15 @@ class IListCircular {
 
   removeFirst() {}
 
-  removeLast() {}
+  removeLast() {
+    let cursor = this.head;
+    if (cursor === null) return;
+    while (cursor.next !== this.tail) {
+      cursor = cursor.next;
+    }
+
+    cursor.next = this.tail.next;
+  }
 
   removeAll() {}
 }

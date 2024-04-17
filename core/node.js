@@ -1,9 +1,11 @@
 export class Node {
-    data = null
-    next = null
+  /** @type {Node?} **/
+  data = null
+  /** @type {Node?} **/
+  next = null
 
-    constructor(data) {
-      this.data = {...data};
-      this.next = null;
-    }
+  constructor(data) {
+    this.data = {...data};
+    this.next = null;
   }
+}
